@@ -1,5 +1,8 @@
 const express = require('express');
-const port = 6969;
+console.log(process.argv);
+
+const envSelector = require('./envPicker');
+envSelector.PickEnv();
 
 const app = express();
 
@@ -13,6 +16,6 @@ app.get("/", (req, res) => {
     `)
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     
 })
