@@ -1,8 +1,10 @@
 const express = require('express');
-console.log(process.argv);
 
 const envSelector = require('./envPicker');
 envSelector.PickEnv();
+
+const db = require('./database');
+db.ConnectToDataBase();
 
 const app = express();
 
