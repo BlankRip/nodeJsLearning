@@ -4,7 +4,7 @@
   "description": "pacakge made in the class ",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js --dev",
+    "start": "node app.js --dev",
     "prod": "nodemon app.js --prod"
   },
   "author": "Blank",
