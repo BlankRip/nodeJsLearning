@@ -7,12 +7,24 @@ const GetDataFromLeaderBoard = (app, db) => {
     app.get("/LeaderBoard", (req, res) => {
         let username = req.query.username;
         db.GetScoreFromLeaderBoard(username, (err, data) => {
-            let jsonObj = {
-                username: data[0].username,
-                score: data[0].score
+            if(data[0] != null) {
+                let jsonObj = {
+                    username: data[0].username,
+                    score: data[0].score
+                }
+    
+                res.send(JSON.stringify(jsonObj));
+            } else {
+                console.log("No Data with that username");
+                res.send(JSON.stringify(data));
             }
+            
+        })
+    })
 
-            res.send(JSON.stringify(jsonObj));
+    app.get("/LeaderBoardAll", (req, res) => {
+        db.GetAllLeaderBoardData((er, data) => {
+            res.send(JSON.stringify({recieved: data}));
         })
     })
 }

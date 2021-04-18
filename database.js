@@ -18,8 +18,13 @@ const GetScoreFromLeaderBoard = (username, callback) => {
     mongoose.model('LeaderBoard', lbSchema.leaderBoard).find({ username }, callback);
 }
 
+const GetAllLeaderBoardData = (callback) => {
+    mongoose.model('LeaderBoard', lbSchema.leaderBoard).find({}, callback).sort({'score': -1});
+}
+
 module.exports = {
     ConnectToDataBase,
     InsertToLeaderBoard,
-    GetScoreFromLeaderBoard
+    GetScoreFromLeaderBoard,
+    GetAllLeaderBoardData
 };

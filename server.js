@@ -11,7 +11,7 @@ const runServer = () => {
     leaderboardEndPoint.LeaderBoardEndPoint(app, db);
     HomeEndPoint.HomeEndPoint(app);
     
-    app.listen(process.env.PORT, () => { })
+    app.listen(process.env.PORT, () => { });
 }
 
 module.exports = {
